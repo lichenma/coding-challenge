@@ -11,6 +11,24 @@ class RateLimiter
   # creating a sliding window or redis countdown hashtable
   # myself but I decided to use this for simplicity
 
+
+  # For simplicity I am assuming we can split up the 
+  # rate limiting into small buckets of time and that 
+  # inside each bucket of time there can only be 
+  # the threshold amount of requests 
+
+
+  # THIS SOLUTION MAY BE INCORRECT IF A CONSTRAINT OF 
+  # THE PROBLEM IS EVERY PERIOD OF TIME MUST HAVE LESS
+  # THAN THE THRESHOLD AMOUNT OF REQUESTS
+  #  - the written solution would fail this because it 
+  #    operates using buckets of time 
+
+  #  - the alternative solution would require using a 
+  #    queue of some sort that keeps track of all requests
+  #    that were made at most one period of time prior to the
+  #    current request
+
   def initialize(throws:)
     @redis = Redis.new(host: "localhost")
     # key used for determining user requests
