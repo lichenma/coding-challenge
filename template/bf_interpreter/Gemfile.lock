@@ -7,12 +7,13 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   test-unit
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.5.5p157
 
 BUNDLED WITH
    1.16.2
